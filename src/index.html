@@ -1,16 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <title>Project Starter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./stylesheets/main.scss">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaysville Theater</title>
+    <link rel="stylesheet" href="./stylesheets/main.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!--  Your HTML goes here-->
-  <h1>Welcome to WEB 2620!!!!!</h1>
-<script type="module" src="./javascripts/main.js"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+            
+            <!-- <div class="kaysville-logo">
+    <div class="logo-line"></div>
+
+    <div class="logo-top">THE</div>
+
+    <h1 class="logo-main">KAYSVILLE</h1>
+
+    <div class="logo-bottom">THEATER</div>
+
+    <div class="logo-line"></div>
+</div> -->
+
+            <a class="navbar-brand" href="index.html">
+    <i class="fa-solid fa-film me-2"></i> 
+    <span style="border-bottom: 1px solid #f0bc69; padding-bottom: 3px;">THE KAYSVILLE THEATRE</span>
+</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#movies">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tickets">Tickets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="concessions.html">Concessions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rentals.html">Private Screenings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="cinema-hero text-center text-white">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">EXPERIENCE THE <span class="text-primary">MAGIC</span></h1>
+            <p class="lead mb-4">Dolby Atmos. 4K Laser Projection. Reclining Seats.</p>
+           <a href="#movies" class="btn btn-primary btn-lg px-5">SEE SHOWTIMES</a>
+<a href="rentals.html" class="btn btn-outline-light btn-lg px-5 ms-2">PRIVATE EVENTS</a>
+        </div>
+    </section>
+
+    <section id="movies" class="py-5">
+        <div class="container">
+            <h2 class="text-primary mb-5 border-bottom border-secondary d-inline-block pe-4">NOW SHOWING</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="card movie-card h-100">
+                        <a href="stranger_things">
+                        <img src="./images/Stranger_Things_season_5.jpeg" class="card-img-top" alt="Movie Poster">
+                        </a>
+                        <div class="card-body text-white px-0">
+                            <h5 class="card-title">Stranger things 5 finale</h5>
+                            <p class="text-muted small">Sci-Fi/Horror | 2h 30m</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="#" class="showtime-badge">12:00 PM</a>
+                                <a href="#" class="showtime-badge">3:30 PM</a>
+                                <a href="#" class="showtime-badge">7:00 PM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="card movie-card h-100">
+                        <a href="nowYouSeeMe3.html">
+                        <img src="./images/nowYouSeeMe.png" class="card-img-top" alt="Movie Poster">
+                        </a>
+                        <div class="card-body text-white px-0">
+                            <h5 class="card-title">Now You See Me</h5>
+                            <p class="text-muted small">Thriller/mystery | 1h 50m</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="#" class="showtime-badge">1:15 PM</a>
+                                <a href="#" class="showtime-badge">4:45 PM</a>
+                                <a href="#" class="showtime-badge">8:30 PM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="col-md-3 col-sm-6">
+                    <div class="card movie-card h-100">
+                        <a href="wicked.html">
+                        <img src="./images/wicked.png" class="card-img-top" alt="Movie Poster">
+                        </a>
+                        <div class="card-body text-white px-0">
+                            <h5 class="card-title">Wicked for Good</h5>
+                            <p class="text-muted small">Musical / Fantasy | 2h 40m</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="#" class="showtime-badge">2:00 PM</a>
+                                <a href="#" class="showtime-badge">5:00 PM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="card movie-card h-100">
+                        <a href="zootopia2.html">
+                        <img src="./images/Zootopia_2.jpg" class="card-img-top" alt="Movie Poster">
+                        </a>
+                        <div class="card-body text-white px-0">
+                            <h5 class="card-title">Zootopia 2</h5>
+                            <p class="text-muted small">Animation | 1h 40m</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="#" class="showtime-badge">9:00 PM</a>
+                                <a href="#" class="showtime-badge">11:30 PM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+   <section id="tickets" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mb-3" style="font-size: 3rem; text-shadow: 0 0 15px red;">BOX OFFICE</h2>
+                <p class="lead text-white" style="font-family: 'VT323', monospace;">NO PRE-SOLD TICKETS • SAME DAY IN-PERSON ONLY</p>
+            </div>
+        </div>
+
+        <div class="row g-5 justify-content-center">
+            
+            <div class="col-lg-5">
+                <div class="ticket-board board-red h-100">
+                    <div class="board-header text-center">
+                        <i class="fa-solid fa-ticket me-2"></i> ADMISSION
+                    </div>
+                    <div class="board-body">
+                        
+                        <div class="price-row special-deal">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="mb-0">MONDAY MANIA</h4>
+                                    <small>After 4:00 PM</small>
+                                </div>
+                                <div class="price">$1.00</div>
+                            </div>
+                        </div>
+
+                        <div class="price-row">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="mb-0">MATINEE</h4>
+                                    <small>Daily Before 4:00 PM</small>
+                                </div>
+                                <div class="price">$4.00</div>
+                            </div>
+                        </div>
+
+                        <div class="price-row">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="mb-0">EVENING</h4>
+                                    <small>Tue - Sat (After 4:00 PM)</small>
+                                </div>
+                                <div class="price">$5.00</div>
+                            </div>
+                        </div>
+
+                        <div class="closed-sign mt-4 text-center">
+                            <span>CLOSED SUNDAY</span>
+                        </div>
+
+                        <div class="mt-4 text-center small opacity-75">
+                            *Prices apply to ages 2 and older
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="ticket-board board-teal h-100">
+                    <div class="board-header text-center">
+                        <i class="fa-solid fa-film me-2"></i> PRIVATE RENTALS
+                    </div>
+                    <div class="board-body">
+                        <p class="text-center mb-4">Host your own private screening! <br><span class="text-muted small">(10 Days Advance Booking Required)</span></p>
+
+                        <div class="rental-info mb-4">
+                            <h5 class="text-decoration-underline mb-2">AVAILABLE TIMES</h5>
+                            <ul class="list-unstyled" style="font-family: 'VT323', monospace; font-size: 1.2rem;">
+                                <li><span class="text-primary">Mon-Thu:</span> 5:00 PM & 7:30 PM</li>
+                                <li><span class="text-primary">Saturday:</span> 12:00 PM & 2:30 PM</li>
+                            </ul>
+                        </div>
+
+                        <div class="price-row">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="mb-0">STANDARD THEATRE</h4>
+                                    <small>132 Seats</small>
+                                </div>
+                                <div class="price">$200</div>
+                            </div>
+                        </div>
+
+                        <div class="price-row">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="mb-0">GRAND THEATRE</h4>
+                                    <small>274 Seats</small>
+                                </div>
+                                <div class="price">$275</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 text-center text-white">
+                <div class="payment-methods mb-2">
+                    <i class="fa-brands fa-cc-visa fa-2x mx-2"></i>
+                    <i class="fa-brands fa-cc-mastercard fa-2x mx-2"></i>
+                    <i class="fa-brands fa-cc-amex fa-2x mx-2"></i>
+                    <i class="fa-brands fa-cc-discover fa-2x mx-2"></i>
+                    <i class="fa-solid fa-money-bill-wave fa-2x mx-2"></i>
+                </div>
+                <p class="small text-muted" style="font-family: 'VT323', monospace; font-size: 1.2rem;">NO CHECKS ACCEPTED</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5" style="background-color: #0b2244; border-top: 3px double #f0bc69;">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2 class="text-warning mb-3" style="font-family: 'Cinzel', serif;">Stay Up-To-Date</h2>
+                <p class="text-white-50 mb-4" style="font-family: 'Lora', serif; font-size: 1.1rem;">
+                    Input your e-mail below and we will send you words and pictures about The Kaysville Theatre. Some of it might even be helpful.
+                </p>
+                
+                <form class="d-flex gap-2 justify-content-center">
+                    <input type="email" class="form-control w-auto" placeholder="Email Address" style="min-width: 250px; background: rgba(255,255,255,0.05); border-color: #f0bc69; color: #f0bc69;">
+                    <button type="submit" class="btn btn-primary px-4">JOIN</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer class="py-4 text-center">
+        <div class="social-grid social-grid-center mt-3">
+    <a href="#" class="text-white"><i class="fa-brands fa-facebook fa-lg"></i></a>
+    <a href="#" class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
+    <a href="#" class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
+</div>
+        <div class="container">
+            <p>&copy; 2025 The Kaysville Theatre. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 </html>
