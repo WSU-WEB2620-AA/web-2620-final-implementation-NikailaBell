@@ -1,18 +1,20 @@
-/* 1. Import FontAwesome */
+/* ============================================= */
+/* 1. SETUP & IMPORTS */
+/* ============================================= */
 @import "@fortawesome/fontawesome-free/css/all.css";
 
-/* 2. The Golden Age Palette */
-$classic-navy: #0e2b57;   
-$classic-gold: #f0bc69;  
-$velvet-red: #8a1c1c;    
-$soft-blue: #66a4dd;      
-$parchment: #f4f1ea;  
+/* --- Color Palette --- */
+$classic-navy: #0e2b57;
+$classic-gold: #f0bc69;
+$velvet-red: #8a1c1c;
+$soft-blue: #66a4dd;
+$parchment: #f4f1ea;
 $pure-red: #ed2525;
 
+/* --- Bootstrap Overrides --- */
 $body-bg: $classic-navy;
 $body-color: $parchment;
 
-/* 3. Bootstrap Setup */
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 
@@ -28,11 +30,12 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 @import "bootstrap/scss/bootstrap";
 
+
 /* ============================================= */
-/* 4. VINTAGE THEME STYLES */
+/* 2. BASE STYLES & TYPOGRAPHY */
 /* ============================================= */
 
-/* GLOBAL TYPOGRAPHY */
+/* Typography */
 h1, h2, h3, .navbar-brand, .display-3, .display-4 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -40,42 +43,44 @@ h1, h2, h3, .navbar-brand, .display-3, .display-4 {
 }
 
 h4, h5, .btn, .nav-link, .card-header {
-  font-family: 'Cinzel', serif; /* Elegant All-Caps look */
+  font-family: 'Cinzel', serif;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
 body, p, td, li, small {
-  font-family: 'Lora', serif; /* Readable book font */
+  font-family: 'Lora', serif;
 }
 
-/* BACKGROUND TEXTURE (Film Grain + Vignette) */
+/* Background Texture */
 body {
   background-color: $classic-navy;
-  /* Creates a subtle "Spotlight" center */
   background-image: radial-gradient(circle at center, lighten($classic-navy, 8%), $classic-navy);
   min-height: 100vh;
+
+  /* Film Grain Overlay */
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("https://www.transparenttextures.com/patterns/noise-lines.png");
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 9999;
+  }
 }
 
-/* Film Grain Overlay */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url("https://www.transparenttextures.com/patterns/noise-lines.png");
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 9999;
-}
 
-/* COMPONENT STYLES */
+/* ============================================= */
+/* 3. COMPONENT STYLES */
+/* ============================================= */
 
-/* Navbar  */
+/* --- Navbar --- */
 .navbar {
   background-color: rgba(14, 43, 87, 0.95) !important;
-  border-bottom: 3px double $classic-gold; 
+  border-bottom: 3px double $classic-gold;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  
+
   .navbar-brand {
     color: $classic-gold !important;
     font-size: 1.8rem;
@@ -86,7 +91,7 @@ body::before {
     color: $soft-blue !important;
     font-size: 1.1rem;
     transition: color 0.3s ease;
-    
+
     &:hover, &.active {
       color: $classic-gold !important;
       text-decoration: underline;
@@ -95,47 +100,48 @@ body::before {
   }
 }
 
-/* Buttons (Ticket Stub Look) */
+/* --- Buttons --- */
 .btn {
-  border-radius: 2px; /* Slightly rounded, like a ticket */
+  border-radius: 2px;
   text-transform: uppercase;
   padding: 10px 25px;
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
-}
 
-.btn-primary {
-  background-color: $velvet-red;
-  border: 1px solid $classic-gold;
-  color: $classic-gold;
-  
-  &:hover {
-    background-color: darken($velvet-red, 5%);
-    border-color: white;
-    color: white;
-    box-shadow: 0 0 15px rgba($classic-gold, 0.3);
+  &.btn-primary {
+    background-color: $velvet-red;
+    border: 1px solid $classic-gold;
+    color: $classic-gold;
+
+    &:hover {
+      background-color: darken($velvet-red, 5%);
+      border-color: white;
+      color: white;
+      box-shadow: 0 0 15px rgba($classic-gold, 0.3);
+    }
+  }
+
+  &.btn-outline-light {
+    border-color: $classic-gold;
+    color: $classic-gold;
+
+    &:hover {
+      background-color: $classic-gold;
+      color: $classic-navy;
+    }
   }
 }
 
-.btn-outline-light {
-  border-color: $classic-gold;
-  color: $classic-gold;
-  &:hover {
-    background-color: $classic-gold;
-    color: $classic-navy;
-  }
-}
-
-/* Cards (Ornate Frames) */
+/* --- Cards (Generic) --- */
 .card, .menu-card, .ticket-board, .rental-card {
   background-color: darken($classic-navy, 3%);
   border: 1px solid $classic-gold;
   border-radius: 3px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-  
-  /* Inner Gold Border Effect */
   position: relative;
+
+  /* Inner Gold Border Effect */
   &::after {
     content: "";
     position: absolute;
@@ -145,28 +151,34 @@ body::before {
   }
 }
 
-/* Movie Cards */
+/* --- Movie Cards (Override) --- */
 .movie-card {
-  border: none; 
+  border: none;
   background: transparent;
   box-shadow: none;
-  &::after { display: none; } 
-  
+
+  &::after { display: none; }
+
   img {
-   width: 100%;           
-    height: 450px;        
-    object-fit: cover;     
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
     object-position: top;
+    border: 5px solid #fff;
+    border-bottom-width: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    filter: sepia(0.3) contrast(1.1);
+    transition: all 0.4s ease;
   }
 
   &:hover img {
     transform: scale(1.02);
-    filter: sepia(0) contrast(1.1); /* Full color on hover */
+    filter: sepia(0) contrast(1.1);
     border-color: $classic-gold;
   }
 }
 
-/* Form Inputs (Parchment Style) */
+/* --- Forms --- */
 .form-control, .form-select {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid $classic-gold;
@@ -182,11 +194,46 @@ body::before {
   }
 }
 
+/* --- Modals --- */
+.modal-backdrop {
+  --bs-backdrop-opacity: 0.8;
+}
+
+.modal-dialog-scrollable .modal-body {
+  &::-webkit-scrollbar { width: 10px; }
+  &::-webkit-scrollbar-track { background: #0a0a0a; }
+  &::-webkit-scrollbar-thumb { background: $classic-gold; border-radius: 5px; }
+}
+
+/* --- Alerts --- */
+.alert-red-carpet {
+  background: linear-gradient(to right, #8a1c1c, #5c1313);
+  border: none;
+  border-left: 6px solid #f0bc69;
+  border-radius: 4px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(240, 188, 105, 0.2);
+    border: 1px solid #f0bc69;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i { color: #f0bc69; font-size: 1.2rem; }
+  }
+}
+
+
 /* ============================================= */
-/* 5. SPECIFIC PAGE OVERRIDES */
+/* 4. PAGE SPECIFIC STYLES */
 /* ============================================= */
 
-/* The Box Office Board (Marquee Style) */
+/* --- Box Office / Ticket Board --- */
 .ticket-board {
   .board-header {
     background-color: $velvet-red;
@@ -196,134 +243,75 @@ body::before {
     font-size: 2rem;
     text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
   }
-  
-  .board-body {
-    padding: 2rem;
-  }
-  
+
+  .board-body { padding: 2rem; }
+
   .price-row {
     border-bottom: 1px dotted $classic-gold;
     margin-bottom: 1.5rem;
-    
+
     .price {
       font-family: 'Playfair Display', serif;
       color: $classic-gold;
       font-style: italic;
     }
-    
+
     h4 { color: white; }
-    small { color: $soft-blue; font-family: 'Cinzel', serif;}
+    small { color: $soft-blue; font-family: 'Cinzel', serif; }
   }
 }
 
-
-/* ============================================= */
-/* 11. MODAL & NEWSLETTER STYLES */
-/* ============================================= */
-
-/* Customize the Modal Scrollbar */
-.modal-dialog-scrollable .modal-body::-webkit-scrollbar {
-  width: 10px;
-}
-.modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
-  background: #0a0a0a; 
-}
-.modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb {
-  background: $classic-gold; 
-  border-radius: 5px;
-}
-
-/* Newsletter Input Placeholder color */
-.newsletter-section input::placeholder {
-  color: rgba($classic-gold, 0.5) !important;
-}
-
-/* Ensure the modal backdrop is dark enough */
-.modal-backdrop {
-  --bs-backdrop-opacity: 0.8;
-}
-
-
-/* Concession Menu (Chalkboard / Menu Card) */
+/* --- Concessions --- */
 .menu-card {
   .menu-header {
     border-bottom: 1px solid $classic-gold;
     color: $classic-gold;
     text-align: center;
   }
-  
-  .dots {
-    border-bottom: 2px dotted rgba($classic-gold, 0.5);
-  }
-  
-  .item-price {
-    color: $soft-blue;
-    font-family: 'Playfair Display', serif;
-  }
+
+  .dots { border-bottom: 2px dotted rgba($classic-gold, 0.5); }
+  .item-price { color: $soft-blue; font-family: 'Playfair Display', serif; }
 }
 
-/* Timeline (About Page) */
-.timeline-item {
-  border-left-color: $classic-gold;
-  
-  .timeline-marker {
-    border-color: $classic-gold;
-    box-shadow: none;
-    background-color: $velvet-red;
-  }
-  
-  h2 { color: $classic-gold !important; }
-  p { color: lighten($classic-navy, 60%); }
-}
-
-/* Footer */
-footer {
-  background-color: darken($classic-navy, 5%);
-  border-top: 1px solid $classic-gold;
-  font-family: 'Cinzel', serif;
-  color: $classic-gold;
-}
-
-/* ============================================= */
-/* 10. MOVIE DETAILS PAGE STYLES */
-/* ============================================= */
-
+/* --- Movie Details --- */
 .gold-divider {
   border: 0;
-  height: 4px; /* Thick enough to show the double line */
-  background-image: linear-gradient(
-    to right, 
-    rgba($classic-gold, 0), 
-    rgba($classic-gold, 1), 
-    rgba($classic-gold, 0)
-  );
+  height: 4px;
+  background-image: linear-gradient(to right, rgba($classic-gold, 0), rgba($classic-gold, 1), rgba($classic-gold, 0));
   opacity: 0.8;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%; /* Don't span the full width, looks cleaner */
+  margin: 0 auto;
+  width: 80%;
 }
 
-/* Ensure the specs list is readable */
 .movie-specs {
-  background-color: rgba(0,0,0,0.2); /* Subtle dark box behind text */
+  background-color: rgba(0,0,0,0.2);
   padding: 20px;
   border: 1px solid rgba($classic-gold, 0.2);
   border-radius: 4px;
 }
 
+/* --- About Page (Timeline) --- */
+.timeline-item {
+  border-left-color: $classic-gold;
 
-/* ============================================= */
-/* 12. SCHEDULER WIDGET STYLES */
-/* ============================================= */
+  .timeline-marker {
+    border-color: $classic-gold;
+    box-shadow: none;
+    background-color: $velvet-red;
+  }
 
+  h2 { color: $classic-gold !important; }
+  p { color: lighten($classic-navy, 60%); }
+}
+
+/* --- Scheduler Widget (Rentals) --- */
 .scheduler-container {
-  background-color: rgba(14, 43, 87, 0.6); /* Transparent Navy */
+  background-color: rgba(14, 43, 87, 0.6);
   border: 2px solid $classic-gold;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   margin-bottom: 2rem;
 }
 
-/* 1. Theatre Selection Cards */
 .theatre-select-card {
   border: 1px solid rgba($classic-gold, 0.3);
   background-color: rgba(0,0,0,0.3);
@@ -335,8 +323,7 @@ footer {
 
   .price-tag {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 10px; right: 10px;
     color: $soft-blue;
     font-family: 'Playfair Display';
     font-weight: bold;
@@ -348,18 +335,17 @@ footer {
   }
 }
 
-/* Logic: When Radio is checked, style the Label */
+/* Logic: Checked State for Theatre */
 .btn-check:checked + .theatre-select-card {
   background-color: $classic-gold;
   border-color: $classic-gold;
-  color: $classic-navy; /* Dark text for contrast */
+  color: $classic-navy;
 
   .text-muted, .text-white-50, .price-tag, .fa-star {
     color: $classic-navy !important;
   }
 }
 
-/* 2. Date Input */
 .vintage-date-input {
   background-color: rgba(255,255,255,0.05);
   border: 1px solid $classic-gold;
@@ -367,14 +353,13 @@ footer {
   padding: 10px;
   font-family: 'Lora';
   font-size: 1.1rem;
-  
+
   &::-webkit-calendar-picker-indicator {
-    filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(350deg); /* Makes icon gold-ish */
+    filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(350deg);
     cursor: pointer;
   }
 }
 
-/* 3. Time Grid Buttons */
 .time-slot-btn {
   display: block;
   text-align: center;
@@ -386,17 +371,12 @@ footer {
   transition: all 0.2s;
   font-family: 'Cinzel';
 
-  small {
-    font-family: 'Lora';
-    font-size: 0.75rem;
-  }
+  small { font-family: 'Lora'; font-size: 0.75rem; }
 
-  &:hover {
-    border-color: $classic-gold;
-  }
+  &:hover { border-color: $classic-gold; }
 }
 
-/* Logic: When Time Radio is checked */
+/* Logic: Checked State for Time */
 .btn-check:checked + .time-slot-btn {
   background-color: $classic-gold;
   color: $classic-navy;
@@ -406,60 +386,52 @@ footer {
   small { color: $classic-navy !important; }
 }
 
-/* Animation for showing the form */
-.fade-in {
-  animation: fadeIn 0.8s ease forwards;
-}
+/* Form Animations */
+.fade-in { animation: fadeIn 0.8s ease forwards; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Footer Link Hover Effect */
+/* --- Contact & Footer --- */
+.newsletter-section input::placeholder {
+  color: rgba($classic-gold, 0.5) !important;
+}
+
+footer {
+  background-color: darken($classic-navy, 5%);
+  border-top: 1px solid $classic-gold;
+  font-family: 'Cinzel', serif;
+  color: $classic-gold;
+}
+
+
+/* ============================================= */
+/* 5. UTILITIES */
+/* ============================================= */
+
+/* Hover Effect for Footer Links */
 .hover-gold {
   transition: color 0.3s ease;
   &:hover {
     color: $classic-gold !important;
-    padding-left: 5px; /* Subtle movement */
+    padding-left: 5px;
   }
 }
 
-/* ============================================= */
-/* 13. CSS GRID UTILITY (Rubric Requirement)     */
-/* ============================================= */
-
-/* A simple CSS Grid layout for the footer social icons 
-   This ensures they are spaced perfectly without using Flexbox */
+/* Social Grid (CSS Grid) */
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(3, auto); /* 3 columns auto-width */
-  gap: 1.5rem; /* Space between items */
+  grid-template-columns: repeat(3, auto);
+  gap: 1.5rem;
   justify-content: start;
-  
-}
 
-.social-grid-center {
-  justify-content: center !important;
-}
+  &.social-grid-center {
+    justify-content: center !important;
+  }
 
-/* On mobile, center them */
-@media (max-width: 768px) {
-  .social-grid {
+  @media (max-width: 768px) {
     justify-content: center;
   }
-}
-
-
-
-/* Red Carpet Alert Style */
-.alert-red-carpet {
-  background: linear-gradient(to right, #8a1c1c, #5c1313); /* Velvet Red Gradient */
-  border: none;
-  border-left: 6px solid #f0bc69; /* Thick Gold Accent Line */
-  border-radius: 4px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4); /* Nice lift off the page */
-  
-  
 }
