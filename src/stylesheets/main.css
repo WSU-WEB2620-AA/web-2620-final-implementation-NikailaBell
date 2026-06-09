@@ -3,27 +3,25 @@
 /* ============================================= */
 /* This import is safe because it is a web link, not a file on your computer */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
-
 /* ============================================= */
 /* 2. BASE STYLES & TYPOGRAPHY */
 /* ============================================= */
-
 /* Global Font Settings */
 h1, h2, h3, .h1, .h2, .h3, .display-1, .display-2, .display-3, .display-4, .navbar-brand {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: #f0bc69; /* Classic Gold */
 }
 
 h4, h5, h6, .h4, .h5, .h6, .btn, .nav-link, .card-header {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
 body, p, td, li, small, span, div {
-  font-family: 'Lora', serif;
+  font-family: "Lora", serif;
 }
 
 /* Body Background */
@@ -38,7 +36,10 @@ body {
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url("https://www.transparenttextures.com/patterns/noise-lines.png");
   opacity: 0.15;
   pointer-events: none;
@@ -48,7 +49,6 @@ body::before {
 /* ============================================= */
 /* 3. BOOTSTRAP OVERRIDES (Manual Colors) */
 /* ============================================= */
-
 /* Primary Buttons (Velvet Red) */
 .btn-primary {
   background-color: #8a1c1c !important;
@@ -74,10 +74,21 @@ body::before {
 }
 
 /* Text Colors */
-.text-primary { color: #8a1c1c !important; }
-.text-warning { color: #f0bc69 !important; }
-.text-muted { color: rgba(244, 241, 234, 0.6) !important; }
-.bg-primary { background-color: #8a1c1c !important; }
+.text-primary {
+  color: #8a1c1c !important;
+}
+
+.text-warning {
+  color: #f0bc69 !important;
+}
+
+.text-muted {
+  color: rgba(244, 241, 234, 0.6) !important;
+}
+
+.bg-primary {
+  background-color: #8a1c1c !important;
+}
 
 /* Forms (Transparent & Gold) */
 .form-control, .form-select {
@@ -94,6 +105,10 @@ body::before {
   box-shadow: none !important;
 }
 
+.form-control::-moz-placeholder {
+  color: rgba(240, 188, 105, 0.5) !important;
+}
+
 .form-control::placeholder {
   color: rgba(240, 188, 105, 0.5) !important;
 }
@@ -101,12 +116,11 @@ body::before {
 /* ============================================= */
 /* 4. COMPONENT STYLES */
 /* ============================================= */
-
 /* --- Navbar --- */
 .navbar {
   background-color: rgba(14, 43, 87, 0.95) !important;
   border-bottom: 3px double #f0bc69;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-brand {
@@ -141,7 +155,7 @@ body::before {
   background-color: #0b2245 !important; /* Darker Navy */
   border: 1px solid #f0bc69 !important;
   border-radius: 3px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
   color: #f4f1ea !important;
   position: relative;
 }
@@ -150,7 +164,10 @@ body::before {
 .card::after, .menu-card::after, .ticket-board::after, .rental-card::after {
   content: "";
   position: absolute;
-  top: 5px; left: 5px; right: 5px; bottom: 5px;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
   border: 1px solid rgba(240, 188, 105, 0.3);
   pointer-events: none;
 }
@@ -162,16 +179,20 @@ body::before {
   box-shadow: none !important;
 }
 
-.movie-card::after { display: none; }
+.movie-card::after {
+  display: none;
+}
 
 .movie-card img {
   width: 100%;
   height: 450px;
-  object-fit: cover;
-  object-position: top;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   border: 5px solid #fff;
   border-bottom-width: 25px; /* Polaroid look */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   filter: sepia(0.3) contrast(1.1);
   transition: all 0.4s ease;
 }
@@ -188,42 +209,80 @@ body::before {
   border: 2px solid #f0bc69 !important;
   color: #f4f1ea !important;
 }
-.modal-header { border-bottom: 1px solid #f0bc69 !important; }
-.modal-footer { border-top: 1px solid #f0bc69 !important; }
-.btn-close { filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg); }
+
+.modal-header {
+  border-bottom: 1px solid #f0bc69 !important;
+}
+
+.modal-footer {
+  border-top: 1px solid #f0bc69 !important;
+}
+
+.btn-close {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
+}
 
 /* --- Ticket Board --- */
+.ticket-board {
+  padding: 10px; /* Adds space inside the border */
+}
+
 .ticket-board .board-header {
   background-color: #8a1c1c;
   color: #f0bc69;
   border-bottom: 3px double #f0bc69;
   padding: 1.5rem;
   font-size: 2rem;
+  text-align: center; /* Centers the "Box Office" title */
   text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+  margin-bottom: 2rem; /* Spacing below the header */
 }
 
 .ticket-board .price-row {
-  border-bottom: 1px dotted #f0bc69;
-  margin-bottom: 1.5rem;
+  /* THIS FIXES THE SPACING */
+  display: flex;                /* Makes items sit side-by-side */
+  justify-content: space-between; /* Pushes them to far left and right */
+  align-items: center;          /* Aligns them vertically */
+  
+  border-bottom: 1px dotted #f0bc69; /* The dotted gold line */
+  margin-bottom: 1.5rem;        /* Space between rows */
+  padding-bottom: 0.5rem;       /* Space above the dotted line */
+}
+
+.ticket-board .price-row div {
+  /* This targets the text on the left (Adult, Child, etc.) */
+  text-align: left;
+}
+
+.ticket-board .price-row h4 {
+  margin-bottom: 0; /* Remove default headers spacing */
+  color: #f4f1ea;   /* Ensure text is parchment color */
+}
+
+.ticket-board .price-row small {
+  display: block;   /* Forces the small text (Age 13+) to sit below the main text */
+  color: #66a4dd;   /* Soft Blue for the sub-text */
+  font-family: 'Cinzel', serif;
 }
 
 .ticket-board .price-row .price {
   font-family: 'Playfair Display', serif;
   color: #f0bc69;
+  font-size: 1.5rem; /* Make the price larger */
   font-style: italic;
+  font-weight: bold;
 }
-
 /* --- Scheduler Widget (Rentals) --- */
 .scheduler-container {
   background-color: rgba(14, 43, 87, 0.6);
   border: 2px solid #f0bc69;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   margin-bottom: 2rem;
 }
 
 .theatre-select-card {
   border: 1px solid rgba(240, 188, 105, 0.3);
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -241,7 +300,7 @@ body::before {
 /* Force text inside active card to be Navy */
 .btn-check:checked + .theatre-select-card h5,
 .btn-check:checked + .theatre-select-card p,
-.btn-check:checked + .theatre-select-card small, 
+.btn-check:checked + .theatre-select-card small,
 .btn-check:checked + .theatre-select-card .price-tag,
 .btn-check:checked + .theatre-select-card i {
   color: #0e2b57 !important;
@@ -254,13 +313,15 @@ body::before {
   padding: 15px 5px;
   border: 1px solid rgba(240, 188, 105, 0.3);
   color: white;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.2s;
   width: 100%;
 }
 
-.time-slot-btn:hover { border-color: #f0bc69; }
+.time-slot-btn:hover {
+  border-color: #f0bc69;
+}
 
 .btn-check:checked + .time-slot-btn {
   background-color: #f0bc69 !important;
@@ -273,12 +334,15 @@ body::before {
 footer {
   background-color: #0b2245;
   border-top: 1px solid #f0bc69;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   color: #f0bc69;
 }
 
-.hover-gold { transition: color 0.3s ease; }
+.hover-gold {
+  transition: color 0.3s ease;
+}
+
 .hover-gold:hover {
   color: #f0bc69 !important;
   padding-left: 5px;
-}
+}/*# sourceMappingURL=main.css.map */
